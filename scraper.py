@@ -135,7 +135,8 @@ def extract_cartoon_of_the_day(page: Page) -> dict[str, str]:
             if header_element and (text := header_element.text_content()):
                 cartoon_data["title"] = text.strip()
 
-            # Get author from <p> tags (two patterns: "कार्टुनिष्ट: Name" or "Title - Author")
+            # Get author from <p> tags
+            # (two patterns: "कार्टुनिष्ट: Name" or "Title - Author")
             author_data = cartoon_wrapper.evaluate(
                 """
                 el => {
