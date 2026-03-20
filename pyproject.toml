@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=70.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ekantipur-scraper"
+version = "0.1.0"
+requires-python = ">=3.11"
+authors = [{ name = "Sulav Bhandari", email = "	cropped.sulav@gmail.com" }]
+description = "Web scraper for ekantipur.com using Playwright to extract 5 entertainment news and cartoon of the day"
+license = "MIT"
+keywords = ["scraper", "playwright", "ekantipur", "nepal", "news"]
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    "playwright>=1.58.0",
+    "rich>=14.3.3",
+]
+
+[project.optional-dependencies]
+pre-commit = ["pre-commit"]
+
+[project.urls]
+Homepage = "https://github.com/cropped33/ekantipur-scraper"
+
+[tool.setuptools]
+py-modules = ["scraper", "logger"]
+
+[tool.ruff.lint]
+select = ["I", "E", "W", "F"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+include = ["scraper.py", "logger.py"]
+typeCheckingMode = "basic"
